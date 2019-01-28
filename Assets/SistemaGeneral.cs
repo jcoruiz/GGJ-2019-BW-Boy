@@ -15,6 +15,11 @@ public class SistemaGeneral : MonoBehaviour {
         //Musica
 
         //Generar Nivel
+        TestClass testClass = new TestClass();
+
+        string hola = testClass.Test();
+
+        Debug.Log(hola);
 
 
         int cantidadMisiones = 1;

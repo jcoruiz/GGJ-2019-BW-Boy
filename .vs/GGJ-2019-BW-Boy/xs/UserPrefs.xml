@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{7A0C66C8-922D-64F7-9C88-C5939FAE99DB}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TestClass.cs">
+    <Files>
+      <File FileName="Assets/Mision.cs" Line="21" Column="15" />
+      <File FileName="Assets/HouseGenerator.cs" Line="20" Column="40" />
+      <File FileName="Assets/SistemaGeneral.cs" Line="22" Column="25" />
+      <File FileName="Assets/Scripts/TestClass.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
