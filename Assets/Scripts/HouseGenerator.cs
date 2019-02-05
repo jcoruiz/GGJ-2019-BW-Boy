@@ -25,8 +25,9 @@ public class HouseGenerator : MonoBehaviour
 
             for (int y = 0; y < matriz; y++)
             {
-                GameObject room = Instantiate(getRandomRoom(), new Vector3( y * width, 0, x * -width), new Quaternion(0, 0, 0, 0));
-
+                //GameObject room = Instantiate(getRandomRoom(), new Vector3( y * width, 0, x * -width), new Quaternion(0, 0, 0, 0));
+                GameObject room = Instantiate(getRandomRoom(), new Vector3(x * width, y * -width, 0), new Quaternion(0, 0, 0, 0));
+                
                 RoomClass roomObj = new RoomClass();
                 roomObj.RoomObj = room;
                 roomObj.Type = "";
@@ -67,39 +68,40 @@ public class HouseGenerator : MonoBehaviour
     GameObject getRandomRoom()
     {
         GameObject response = new GameObject();
-        int maxBano = 2;
-        int maxCocina = 1;
-        int maxPieza = 10;
-        int maxLiving = 3;
+        //int maxBano = 2;
+        //int maxCocina = 1;
+        //int maxPieza = 10;
+        //int maxLiving = 3;
 
-        string[] tipo = new string[] { "Cocina", "Bano", "Pieza", "Living" };
+        string[] tipo = new string[] { "Cocina"};
+        //string[] tipo = new string[] { "Cocina", "Bano", "Pieza", "Living" };
 
-        int randomTipo = Random.Range((int)0, (int)4);
-        Debug.Log(randomTipo);
+        int randomTipo = Random.Range((int)0, (int)1);
+        //Debug.Log(randomTipo);
 
         if (tipo[randomTipo] == "Cocina")
         {
-            int random = Random.Range(1, 4);
-            Debug.Log(random);
+            int random = Random.Range(1, 2);
+            //Debug.Log(random);
             response = contenedorEstructuras.transform.Find("EstructuraCocina_" + random).gameObject;
         }
         if (tipo[randomTipo] == "Bano")
         {
             int random = Random.Range(1, 4);
-            Debug.Log(random);
+            //Debug.Log(random);
             response = contenedorEstructuras.transform.Find("EstructuraBano_" + random).gameObject;
         }
         if (tipo[randomTipo] == "Pieza")
         {
             int random = Random.Range(1, 1);
-            Debug.Log(random);
+            //Debug.Log(random);
             response = contenedorEstructuras.transform.Find("EstructuraPieza_" + random).gameObject;
         }
 
         if (tipo[randomTipo] == "Living")
         {
             int random = Random.Range(1, 1);
-            Debug.Log(random);
+            //Debug.Log(random);
             response = contenedorEstructuras.transform.Find("EstructuraLiving_" + random).gameObject;
         }
 

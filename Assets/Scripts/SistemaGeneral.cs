@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -22,9 +23,9 @@ public class SistemaGeneral : MonoBehaviour {
         //Generar Nivel
 
 
-        cantidadMisiones = 1;
+        cantidadMisiones = 2;
 
-        matriz = 3;
+        matriz = 2;
 
         //Crear Misiones
         GameObject.Find("MisionesClass").GetComponent<MisionesClass>().Make();
@@ -37,40 +38,18 @@ public class SistemaGeneral : MonoBehaviour {
 
         StartCoroutine(test2());
 
-        List<RoomClass> habitacionesCreadas = GameObject.Find("HouseGenerator").GetComponent<HouseGenerator>().rooms;
+        //List<RoomClass> habitacionesCreadas = GameObject.Find("HouseGenerator").GetComponent<HouseGenerator>().rooms;
 	}
 	
 
 
     List<Mision> SeleccionarMisiones()
     {
-        List<Mision> misiones = GameObject.Find("MisionesClass").GetComponent<MisionesClass>().misiones;
-        
-        List<Mision> misionesSeleccionadas = new List<Mision>();
+        List<Mision> misionesMaster = GameObject.Find("MisionesClass").GetComponent<MisionesClass>().misiones;
 
-        for (int i = 0; i < cantidadMisiones; i++)
-        {
-            int random = 0;
-            bool estaSeleccionada = true;
+        List<Mision> misiones = misionesMaster.OrderBy(x => System.Guid.NewGuid()).Take(cantidadMisiones).ToList();
 
-            while (estaSeleccionada)
-            {
-                random = Random.Range((int)0, (int)misiones.Count);
-              
-                estaSeleccionada = false;
-                foreach (var mision in misionesSeleccionadas)
-                {
-                    if (mision.nombre_mision == misiones[random].nombre_mision)
-                    {
-                        estaSeleccionada = true;
-                    }
-                }
-            }
-           
-            misionesSeleccionadas.Add(misiones[random]);
-        }
-
-        return misionesSeleccionadas;
+        return misiones;
     }
 
     public void PonerObjetos(List<RoomClass> habitacionesCreadas,int cantidadMisiones, List<Mision> misionesSeleccionadas)

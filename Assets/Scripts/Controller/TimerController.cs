@@ -10,7 +10,7 @@ public class TimerController : MonoBehaviour {
 
     private float nextActionTime = 0.0f;
     private float period = 1.0f;
-    private int segundos = 30;
+    private int segundos = 600;
 
     private float initialTime;
 

@@ -38,7 +38,7 @@ public class MisionesClass : MonoBehaviour {
 
         //print();
 
-        /*
+
         Mision misionRopa = new Mision();
         misionRopa.nombre_mision = "Lavar la ropa";
         misionRopa.objetos_a_buscar = new List<GameObject>();
@@ -57,11 +57,11 @@ public class MisionesClass : MonoBehaviour {
         ropa3.GetComponent<InteraccionObjetoPersonaje>().Nombre = "Ropa";
         misionRopa_obj_buscar.Add(ropa3);
 
-        misionPlato.lugar_destino = "Lavadora";
+        misionRopa.lugar_destino = "Lavadora";
 
         misionRopa.se_destruye = true;
         misiones.Add(misionRopa);
-        */
+
         /*
         Mision misionComidaPerro = new Mision();
         misionComidaPerro.nombre_mision = "Dar de comer al perro";

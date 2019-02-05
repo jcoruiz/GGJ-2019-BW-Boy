@@ -16,7 +16,7 @@ public class HeroController : MonoBehaviour
     private bool carryObject;
 
     //Componetes de Hero
-    private Rigidbody thisRigidbody;
+    private Rigidbody2D thisRigidbody;
     private Animator thisAnimator;
 
 
@@ -32,7 +32,7 @@ public class HeroController : MonoBehaviour
             velocity: 5.0f,
             isHandFree: true);
 
-        thisRigidbody = gameObject.GetComponent<Rigidbody>();
+        thisRigidbody = gameObject.GetComponent<Rigidbody2D>();
         thisAnimator = gameObject.GetComponent<Animator>();
 
 
@@ -81,7 +81,7 @@ public class HeroController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            thisRigidbody.AddForce(new Vector3(0, 0, heroClass.velocity), ForceMode.VelocityChange);
+            thisRigidbody.AddForce(new Vector2(0, heroClass.velocity));
             thisAnimator.SetBool("down", false);
             thisAnimator.SetBool("up", true);
             thisAnimator.SetBool("left", false);
@@ -89,7 +89,7 @@ public class HeroController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            thisRigidbody.AddForce(new Vector3(0, 0, -heroClass.velocity), ForceMode.VelocityChange);
+            thisRigidbody.AddForce(new Vector2(0, -heroClass.velocity));
             thisAnimator.SetBool("down", true);
             thisAnimator.SetBool("up", false);
             thisAnimator.SetBool("left", false);
@@ -97,7 +97,7 @@ public class HeroController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            thisRigidbody.AddForce(new Vector3(-heroClass.velocity, 0, 0), ForceMode.VelocityChange);
+            thisRigidbody.AddForce(new Vector2(-heroClass.velocity, 0));
             thisAnimator.SetBool("down", false);
             thisAnimator.SetBool("up", false);
             thisAnimator.SetBool("left", true);
@@ -105,7 +105,7 @@ public class HeroController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            thisRigidbody.AddForce(new Vector3(heroClass.velocity, 0, 0), ForceMode.VelocityChange);
+            thisRigidbody.AddForce(new Vector2(heroClass.velocity, 0));
             thisAnimator.SetBool("down", false);
             thisAnimator.SetBool("up", false);
             thisAnimator.SetBool("left", false);
@@ -120,13 +120,12 @@ public class HeroController : MonoBehaviour
         {
             heroClass.isHandFree = true;
             objeto_en_mano.GetComponent<Collider>().enabled = true;
-            objeto_en_mano.GetComponent<Rigidbody>().AddForce(thisRigidbody.velocity - new Vector3(thisRigidbody.velocity.x / 4, 0, thisRigidbody.velocity.z / 4), ForceMode.VelocityChange);
+            //objeto_en_mano.GetComponent<Rigidbody>().AddForce(thisRigidbody.velocity - new Vector3(thisRigidbody.velocity.x / 4, 0, thisRigidbody.velocity.y / 4), ForceMode.VelocityChange);
             objeto_en_mano.transform.Find("sombra").gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log(hud.activeSelf);
             hud.SetActive(!hud.activeSelf);
         }
 
@@ -159,7 +158,7 @@ public class HeroController : MonoBehaviour
                     // Debug.Log("Se quiere crear instancia con nombre: " + script.Contenido[i].GetComponent<InteraccionObjetoPersonaje>().Nombre);
                     GameObject objetoInstanciado = Instantiate(script.Contenido[i], other.gameObject.transform.position + new Vector3(0, 5, -script.gameObject.transform.localScale.z / 2), new Quaternion(0, 0, 0, 0));
 
-                    objetoInstanciado.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -heroClass.velocity), ForceMode.VelocityChange);
+                    //objetoInstanciado.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -heroClass.velocity), ForceMode.VelocityChange);
 
                     objetoInstanciado.GetComponent<InteraccionObjetoPersonaje>().Nombre = script.Contenido[i].GetComponent<InteraccionObjetoPersonaje>().Nombre;
 

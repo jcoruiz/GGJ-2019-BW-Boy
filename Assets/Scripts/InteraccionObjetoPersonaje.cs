@@ -33,9 +33,9 @@ public class InteraccionObjetoPersonaje : MonoBehaviour
                         mision.progreso++;
                         se_utilizo_objeto = true;
                         gameObject.SetActive(false);
-                        if (GameObject.Find("hero").GetComponent<HeroClass>().isHandFree == false)
+                        if (GameObject.Find("Hero").GetComponent<HeroClass>().isHandFree == false)
                         {
-                            GameObject.Find("hero").GetComponent<HeroClass>().isHandFree = true;
+                            GameObject.Find("Hero").GetComponent<HeroClass>().isHandFree = true;
                         }
 
                     }

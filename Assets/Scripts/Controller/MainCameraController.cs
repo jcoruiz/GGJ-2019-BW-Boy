@@ -16,18 +16,18 @@ public class MainCameraController : MonoBehaviour
         int offset = mainCameraClass.Offset;
 
         float playerX = mainCameraClass.Player.transform.position.x;
-        float playerZ = mainCameraClass.Player.transform.position.z;
+        float playerY = mainCameraClass.Player.transform.position.y;
 
-        float thisY = transform.position.y;
+        float thisZ = transform.position.z;
 
         float t = 0.2f;
         float space = 65f;
 
         float vectorX = Mathf.Floor((playerX + space/2) / space);
-        float vectorZ = Mathf.Floor((playerZ + space / 2) / space);
+        float vectorY = Mathf.Floor((playerY + space / 2) / space);
 
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(space * vectorX, thisY, space * vectorZ), t);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(space * vectorX, space * vectorY, thisZ), t);
 
     }
 }
